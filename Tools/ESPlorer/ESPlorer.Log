@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="windows-1251" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578550</millis>
+  <sequence>5</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Load saved settings: Firmware:NodeMCU</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578558</millis>
+  <sequence>6</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Snippets: loading...</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578565</millis>
+  <sequence>7</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Snippets load: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578672</millis>
+  <sequence>8</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Set new color theme: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578675</millis>
+  <sequence>9</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Load saved settings: DONE.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578677</millis>
+  <sequence>10</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Snippets: loading...</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578681</millis>
+  <sequence>11</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Snippets load: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578885</millis>
+  <sequence>12</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Scan system...</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578892</millis>
+  <sequence>13</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>found COM2</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578894</millis>
+  <sequence>14</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>found last saved serial port COM14</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578896</millis>
+  <sequence>15</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>found COM255</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578898</millis>
+  <sequence>16</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>found COM256</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:18</date>
+  <millis>1471612578902</millis>
+  <sequence>17</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Scan done.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:21</date>
+  <millis>1471612581801</millis>
+  <sequence>18</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Serial port COM14 save as default.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:21</date>
+  <millis>1471612581803</millis>
+  <sequence>19</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Baud rate 9600 save as default.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:21</date>
+  <millis>1471612581804</millis>
+  <sequence>20</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Try to open port COM14, baud 9600, 8N1</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:21</date>
+  <millis>1471612581822</millis>
+  <sequence>21</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Open port COM14 - Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:53</date>
+  <millis>1471612613072</millis>
+  <sequence>22</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Try to open file blink.lua</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:53</date>
+  <millis>1471612613074</millis>
+  <sequence>23</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>File name: C:\Users\Administrator\Documents\blink.lua</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:53</date>
+  <millis>1471612613079</millis>
+  <sequence>24</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Try to load file blink.lua</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:53</date>
+  <millis>1471612613138</millis>
+  <sequence>25</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Loading blink.lua: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:16:53</date>
+  <millis>1471612613140</millis>
+  <sequence>26</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Open "blink.lua": Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628146</millis>
+  <sequence>27</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>We save known file blink.lua</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628149</millis>
+  <sequence>28</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Try to saving file blink.lua ...</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628156</millis>
+  <sequence>29</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Save file blink.lua: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628160</millis>
+  <sequence>30</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>FileSaveESP: Try to save file to ESP...</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628174</millis>
+  <sequence>31</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>DataSender: start "Smart Mode"</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628177</millis>
+  <sequence>32</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>FileSaveESP: Starting...</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628204</millis>
+  <sequence>33</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>0</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628205</millis>
+  <sequence>34</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:file.remove("blink.lua");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628237</millis>
+  <sequence>35</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:file.remove("blink.lua");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628252</millis>
+  <sequence>36</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>1</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628253</millis>
+  <sequence>37</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:file.open("blink.lua","w+");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628677</millis>
+  <sequence>38</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; file.open("blink.lua","w+");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628692</millis>
+  <sequence>39</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>2</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:08</date>
+  <millis>1471612628694</millis>
+  <sequence>40</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w = file.writeline&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629461</millis>
+  <sequence>41</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; w = file.writeline</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629476</millis>
+  <sequence>42</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>3</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629478</millis>
+  <sequence>43</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[lighton=0]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629508</millis>
+  <sequence>44</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[lighton=0]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629513</millis>
+  <sequence>45</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629529</millis>
+  <sequence>46</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>4</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629531</millis>
+  <sequence>47</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[pin=4]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629555</millis>
+  <sequence>48</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[pin=4]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629558</millis>
+  <sequence>49</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629574</millis>
+  <sequence>50</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>5</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629576</millis>
+  <sequence>51</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[gpio.mode(pin,gpio.OUTPUT)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629613</millis>
+  <sequence>52</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[gpio.mode(pin,gpio.OUTPUT)</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629623</millis>
+  <sequence>53</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629626</millis>
+  <sequence>54</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629643</millis>
+  <sequence>55</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>6</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629645</millis>
+  <sequence>56</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[tmr.alarm(1,2000,1,function()]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629682</millis>
+  <sequence>57</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[tmr.alarm(1,2000,1,functio</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629694</millis>
+  <sequence>58</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:n()]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629704</millis>
+  <sequence>59</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629718</millis>
+  <sequence>60</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>7</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629719</millis>
+  <sequence>61</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[    if lighton==0 then]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629756</millis>
+  <sequence>62</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[    if lighton==0 then]==]</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629762</millis>
+  <sequence>63</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629765</millis>
+  <sequence>64</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629778</millis>
+  <sequence>65</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>8</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629779</millis>
+  <sequence>66</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[            lighton=1]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629815</millis>
+  <sequence>67</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[            lighton=1]==])</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629820</millis>
+  <sequence>68</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:;&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629823</millis>
+  <sequence>69</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629832</millis>
+  <sequence>70</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>9</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629833</millis>
+  <sequence>71</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[            gpio.write(pin,gpio.HIGH)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629869</millis>
+  <sequence>72</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[            gpio.write(pin</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629890</millis>
+  <sequence>73</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:,gpio.HIGH)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629895</millis>
+  <sequence>74</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629913</millis>
+  <sequence>75</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>10</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629915</millis>
+  <sequence>76</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[        else]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629945</millis>
+  <sequence>77</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[        else]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629949</millis>
+  <sequence>78</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629957</millis>
+  <sequence>79</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>11</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629957</millis>
+  <sequence>80</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[            lighton=0]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629992</millis>
+  <sequence>81</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[            lighton=0]==])</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:09</date>
+  <millis>1471612629997</millis>
+  <sequence>82</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:;&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630000</millis>
+  <sequence>83</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630009</millis>
+  <sequence>84</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>12</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630009</millis>
+  <sequence>85</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[            gpio.write(pin,gpio.LOW)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630044</millis>
+  <sequence>86</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[            gpio.write(pin</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630065</millis>
+  <sequence>87</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:,gpio.LOW)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630068</millis>
+  <sequence>88</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630077</millis>
+  <sequence>89</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>13</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630077</millis>
+  <sequence>90</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[        end]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630107</millis>
+  <sequence>91</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[        end]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630110</millis>
+  <sequence>92</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630120</millis>
+  <sequence>93</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>14</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630121</millis>
+  <sequence>94</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:w([==[end)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630143</millis>
+  <sequence>95</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:w([==[end)]==]);&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630146</millis>
+  <sequence>96</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630155</millis>
+  <sequence>97</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>15</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630155</millis>
+  <sequence>98</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:file.close();&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630175</millis>
+  <sequence>99</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:file.close();&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630183</millis>
+  <sequence>100</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:&gt; </message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630187</millis>
+  <sequence>101</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>16</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630188</millis>
+  <sequence>102</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>sending:dofile("blink.lua");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630215</millis>
+  <sequence>103</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>recv:dofile("blink.lua");&lt;CR&gt;&lt;LF&gt;</message>
+</record>
+<record>
+  <date>2016-08-19T15:17:10</date>
+  <millis>1471612630226</millis>
+  <sequence>104</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>29</thread>
+  <message>Operation done. Duration = 2063 ms</message>
+</record>
+<record>
+  <date>2016-08-19T15:18:20</date>
+  <millis>1471612700235</millis>
+  <sequence>105</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>FileTab cleared: Success.</message>
+</record>
+<record>
+  <date>2016-08-19T15:18:20</date>
+  <millis>1471612700236</millis>
+  <sequence>106</sequence>
+  <logger>ESPlorer.ESPlorer</logger>
+  <level>INFO</level>
+  <class>ESPlorer.ESPlorer</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>File close: Success.</message>
+</record>
+</log>
