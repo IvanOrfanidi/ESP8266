@@ -1,1 +1,4 @@
 *.Log
+*.txt
+*.png
+/Tools/Config/*.*
