@@ -75,17 +75,15 @@ conn:on("receive", function(conn, payloadout)
         end
     end)
 -- api.thingspeak.com 184.106.153.149
---conn:connect(80,'184.106.153.149')
-conn:connect(8283,'narodmon.ru')
+conn:connect(80,'184.106.153.149')
 
 conn:on("connection", function(conn)
     ow.setup(OWPIN)
-    --t=getData()
-    t=25
+    t=getData()
     print("Temp:"..t.." C\n")
     print("Send data...")
-    print("#"..wifi.sta.getmac().."#ESP8266\n#T1#"..t.."\n##")
-    conn:send("#"..wifi.sta.getmac().."#ESP8266\n#T1#"..t.."\n##")
+    print("GET /update?key=AQBLFGNJKJFJED2P&field1="..t.."\r\n")
+    conn:send("GET /update?key=AQBLFGNJKJFJED2P&field1="..t.."\r\n")
 end)
 
 conn:on("sent",function(conn)
