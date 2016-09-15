@@ -1,5 +1,4 @@
 --init.lua
-timeout = 60
 print("Setting up WIFI...")
 wifi.setmode(wifi.STATION)
 --modify according your wireless router settings
@@ -8,19 +7,13 @@ wifi.sta.connect()
 tmr.alarm(1, 1000, 1, function() 
 if (wifi.sta.getip()== nil) then 
 print("IP unavaiable, Waiting...") 
-timeout = timeout - 1
-print("Timeout Connect "..timeout)
-if(timeout == 0) then
-       print("Deep sleep 30 min")
-       node.dsleep(1800000000)
-end
 else 
 tmr.stop(1)
 print("MAC: "..wifi.sta.getmac())      -- print current mac address
 print("IP: "..wifi.sta.getip())      -- print current IP address
 --dofile("httpsender.lua")
 -- send data every 10min to thing speak
-tmr.alarm(0, 100, tmr.ALARM_SINGLE, function() sendData() end )
+tmr.alarm(0, 60000, tmr.ALARM_SINGLE, function() sendData() end )
 end 
 end)
 
@@ -166,8 +159,6 @@ conn:on("sent",function(conn)
 conn:on("disconnection", function(conn, payloadout)
         conn:close();
         collectgarbage();
-        print("Got disconnection...\r") 
-        print("Deep sleep 30 min")
-        node.dsleep(1800000000)                     
+        print("Got disconnection...\r")               
   end)
 end
