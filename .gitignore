@@ -2,3 +2,5 @@
 *.txt
 *.png
 /Tools/Config/*.*
+/Tools/ESPlorer/ESPlorer.Log
+/Tools/Config/*.xml
