@@ -1,6 +1,6 @@
 --init.lua
-SSID_NETWORK = 'HomeInternet'
-PASSWORD_NETWORK= 'OmMaNiPadmeHum'
+SSID_NETWORK = 'Xiaomi_D36F'
+PASSWORD_NETWORK= 'xiaomixiaomi'
 --Write API Key
 TSKEY='3A07W8TZ0F1DQYPP'
 
@@ -16,14 +16,13 @@ print("IP unavaiable, Waiting...")
 timeout = timeout - 1
 print("Timeout Connect "..timeout)
 if(timeout == 0) then
-       --node.dsleep(1800000000)
+       node.restart()
 end
 else 
 tmr.stop(1)
 print("MAC: "..wifi.sta.getmac())      -- print current mac address
 print("IP: "..wifi.sta.getip())      -- print current IP address
-msg = "IP:"..wifi.sta.getip()
-prit_lcd(msg)
+prit_lcd(wifi.sta.getip())
 
 tmr.alarm(0, 5000, 1, function() main() end )
 end 
@@ -49,9 +48,9 @@ function send(data)
    i2c.start(id)
    i2c.address(id, dev, i2c.TRANSMITTER)
    i2c.write(id, reg, value)
-   --tmr.delay(1)
    i2c.stop(id)
 end  
+
 function prit_lcd(str)
      -- init
     rs = 0
@@ -118,12 +117,12 @@ end
 
 
 function main()
-    print("Run Appl")
     --msg = "Hello World!1234567890          "
     status, temp, humi, temp_dec, humi_dec = dht.read(DAT)
     -- Integer firmware using this example
     msg = "T1: "..temp.."C, H1: "..humi.."%"
     print(msg)
     prit_lcd(msg)
-    print("Stop Appl")
 end
+
+prit_lcd("Setting up WIFI.")
