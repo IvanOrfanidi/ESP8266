@@ -100,7 +100,7 @@ function prit_lcd(str)
 end
 
 -- DHT11 config
-DAT = 2
+DAT = 4
 
 function readDHT11()
   status, temp, humi, temp_dec, humi_dec = dht.read(DAT)
@@ -116,13 +116,55 @@ function readDHT11()
 end
 
 
+function sendData()
+-- conection to thingspeak.com
+print("Sending data to thingspeak.com")
+conn=nil
+conn=net.createConnection(net.TCP, 0) 
+conn:on("receive", function(conn, payloadout)
+        if (string.find(payloadout, "Status: 200 OK") ~= nil) then
+            print("Posted OK");
+        end
+    end)
+-- api.thingspeak.com 184.106.153.149
+conn:connect(80,'184.106.153.149')
+
+conn:on("connection", function(conn)
+    tDHT, hDHT = readDHT11()
+    print("Temp DHT11:"..tDHT.." C")
+    print("Hum:"..hDHT.." %")
+    print("Send data...")
+    print("GET /update?key="..TSKEY.."&field1="..hDHT.."&field2="..tDHT.."\r\n")
+    conn:send("GET /update?key="..TSKEY.."&field1="..hDHT.."&field2="..tDHT.."\r\n")
+end)
+
+conn:on("sent",function(conn)
+                      print("Closing connection")
+                      conn:close()
+                  end)
+conn:on("disconnection", function(conn, payloadout)
+        conn:close();
+        collectgarbage();
+        print("Got disconnection...\r")               
+  end)
+end
+
+i = 0
 function main()
     --msg = "Hello World!1234567890          "
     status, temp, humi, temp_dec, humi_dec = dht.read(DAT)
     -- Integer firmware using this example
     msg = "T1: "..temp.."C, H1: "..humi.."%"
-    print(msg)
     prit_lcd(msg)
+    if i == 0 then 
+        sendData()
+    end
+    i = i + 5
+    print(i)
+    if i > 600 then 
+     i = 0
+    end
+    
 end
 
 prit_lcd("Setting up WIFI.")
