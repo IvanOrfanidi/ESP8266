@@ -1,19 +1,21 @@
 --init.lua
-SSID_NETWORK = 'Xiaomi_D36F'
-PASSWORD_NETWORK= 'xiaomixiaomi'
+SSID_NETWORK = 'HomeInternet'
+PASSWORD_NETWORK= 'OmMaNiPadmeHum'
 --Write API Key
-TSKEY='3A07W8TZ0F1DQYPP'
+TSKEY='Z21AEZH17Y3YWHP8'
 
-timeout = 60
+timeout = 30
 print("Setting up WIFI...")
 wifi.setmode(wifi.STATION)
 --modify according your wireless router settings
 wifi.sta.config(SSID_NETWORK, PASSWORD_NETWORK)
 wifi.sta.connect()
-tmr.alarm(1, 1000, 1, function() 
+tmr.alarm(1, 2000, 1, function() 
 if (wifi.sta.getip()== nil) then 
 print("IP unavaiable, Waiting...") 
 timeout = timeout - 1
+msg = "Setting up WIFI.Timeout Conn: "..timeout
+print_lcd(msg)
 print("Timeout Connect "..timeout)
 if(timeout == 0) then
        node.restart()
@@ -22,7 +24,7 @@ else
 tmr.stop(1)
 print("MAC: "..wifi.sta.getmac())      -- print current mac address
 print("IP: "..wifi.sta.getip())      -- print current IP address
-print_lcd(wifi.sta.getip())
+--print_lcd(wifi.sta.getip())
 sntp.sync('pool.ntp.org',sync_ok, sync_err)
 tmr.alarm(0, 60000, 1, function() main() end )
 end 
@@ -209,11 +211,10 @@ function main()
     
     i = i + 1
     print(i)
+    tmr.wdclr()
     
     if i > 80 then 
      i = 1
     end
     
 end
-
-print_lcd("Setting up WIFI.")
