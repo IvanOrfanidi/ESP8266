@@ -35,7 +35,32 @@ tmr.alarm(0, 60000, 1, function() main() end )
 end 
 end)
 
+
+-- i2c config
+SDA_PIN = 6
+SCL_PIN = 5
+-- BMP180 config
+OSS = 1 -- oversampling
+bmp180 = require("bmp085")
+bmp180.init(SDA_PIN, SCL_PIN)
+
+function readBMP180()
+  t = bmp180.temperature()
+  -- add decimal point
+  t = t / 10 ..".".. t % 10
+  --print("BMP180 temperature: "..t)
+  p = bmp180.pressure(OSS)
+  --print("BMP180 pressure hPA: "..p)
+  -- converp Pa to mmHg
+  phg=(p * 75 / 10000).."."..((p * 75 % 10000) / 1000)
+  --print("BMP180 pressure mmHg: "..phg)
+  return t, p, phg
+end
+
+
 --   HD44780
+COLUMN_LCD = 16
+LINE_LCD = 2
 id = 0
 sda = 6      -- GPIO2
 scl = 5      -- GPIO14
@@ -62,7 +87,7 @@ function print_lcd(str)
      -- init
     rs = 0
     send({0x30})
-    tmr.delay(4000)
+    tmr.delay(1000)
     send({0x30})
     tmr.delay(100)
     send({0x30})
@@ -137,11 +162,14 @@ conn:connect(80,'184.106.153.149')
 
 conn:on("connection", function(conn)
     tDHT, hDHT = readDHT11()
+    
+    tBMP, phpBMP, phgBMP = readBMP180()
+    phgBMP = (phpBMP * 75) / 10000
+    
     print("Temp DHT11:"..tDHT.." C")
     print("Hum:"..hDHT.." %")
     print("Send data...")
-    print("GET /update?key="..TSKEY.."&field1="..hDHT.."&field2="..tDHT.."\r\n")
-    conn:send("GET /update?key="..TSKEY.."&field1="..hDHT.."&field2="..tDHT.."\r\n")
+    conn:send("GET /update?key="..TSKEY.."&field1="..hDHT.."&field2="..tDHT.."&field3="..phgBMP.."&field4="..tBMP.."\r\n")
 end)
 
 conn:on("sent",function(conn)
@@ -153,6 +181,31 @@ conn:on("disconnection", function(conn, payloadout)
         collectgarbage();
         print("Got disconnection...\r")               
   end)
+end
+
+
+function updateLCD()
+    tDS = 0
+    
+    status, tDHT, hDHT, temp_dec, humi_dec = dht.read(DAT)
+    
+    tm = rtctime.epoch2cal(rtctime.get())
+
+    year = (string.format("%04d", tm["year"]))
+    mon = (string.format("%02d", tm["mon"]))
+    day = (string.format("%02d", tm["day"]))
+    hour = (string.format("%02d", tm["hour"]))
+    min = (string.format("%02d", tm["min"]))
+    tBMP, phpBMP, phgBMP = readBMP180();
+    phgBMP = (phpBMP * 75) / 10000
+
+    msg = hour..":"..min.." P: "..phgBMP.."mmHgT: "..tBMP.."C, H: "..hDHT.."%"
+
+    while string.len(msg) < (COLUMN_LCD * LINE_LCD) - 1  do
+        msg = msg.." "
+    end
+    print(msg)
+    print_lcd(msg)
 end
 
 year = 0;
@@ -170,15 +223,7 @@ function sync_ok(offsec, offusec,serv)
 
   if one_update_lcd == 0 then
     one_update_lcd = 1
-    status, temp, humi, temp_dec, humi_dec = dht.read(DAT)
-    tm = rtctime.epoch2cal(rtctime.get())
-    year = (string.format("%04d", tm["year"]))
-    mon = (string.format("%02d", tm["mon"]))
-    day = (string.format("%02d", tm["day"]))
-    hour = (string.format("%02d", tm["hour"]))
-    min = (string.format("%02d", tm["min"]))
-    msg = hour..":"..min.." "..day.."."..mon.."."..year.."T1: "..temp.."C, H1: "..humi.."%"
-    print_lcd(msg)
+    updateLCD()
   end
 end
 
@@ -191,40 +236,29 @@ function sync_err(errcode)
   insync=0
 end
 
+
 buz_on = 0;
-i = 1
+time_update = 1
 
 function main()
-    --msg = "Hello World!1234567890          "
-    status, temp, humi, temp_dec, humi_dec = dht.read(DAT)
-    
-    tm = rtctime.epoch2cal(rtctime.get())
 
-    year = (string.format("%04d", tm["year"]))
-    mon = (string.format("%02d", tm["mon"]))
-    day = (string.format("%02d", tm["day"]))
-    hour = (string.format("%02d", tm["hour"]))
-    min = (string.format("%02d", tm["min"]))
+    updateLCD()
     
-    msg = hour..":"..min.." "..day.."."..mon.."."..year.."T1: "..temp.."C, H1: "..humi.."%"
-    print_lcd(msg)
-    
-    if i == 1 then 
+    if time_update == 1 then 
         sendData()
     end
-    if i == 40 then 
+    if time_update == 40 then 
         sendData()
     end
     
-    if i == 60 then 
+    if time_update == 60 then 
         sntp.sync('pool.ntp.org',sync_ok, sync_err)
     end
     
-    i = i + 1;
-    print(i)
+    time_update = time_update + 1;
     
-    if i > 80 then 
-     i = 1;
+    if time_update > 80 then 
+     time_update = 1;
     end
     
 end
@@ -309,4 +343,4 @@ function read_key()
     end
 end
 
-print_lcd("Setting up WIFI.")
+print_lcd("Setting  up WIFI")
