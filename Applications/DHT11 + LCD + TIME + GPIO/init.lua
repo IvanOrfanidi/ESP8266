@@ -1,6 +1,4 @@
---init.lua
-SSID_NETWORK = 'Xiaomi_D36F'
-PASSWORD_NETWORK= 'xiaomixiaomi'
+
 --Write API Key
 TSKEY='3A07W8TZ0F1DQYPP'
 
@@ -11,29 +9,29 @@ gpio.mode(BUZ, gpio.OUTPUT)
 gpio.mode(KEY, gpio.INPUT)
 tmr.alarm(2, 100, 1, function() read_key() end)
 
-timeout = 60
-print("Setting up WIFI...")
-wifi.setmode(wifi.STATION)
---modify according your wireless router settings
-wifi.sta.config(SSID_NETWORK, PASSWORD_NETWORK)
-wifi.sta.connect()
-tmr.alarm(1, 1000, 1, function() 
-if (wifi.sta.getip()== nil) then 
-print("IP unavaiable, Waiting...") 
-timeout = timeout - 1
-print("Timeout Connect "..timeout)
-if(timeout == 0) then
-       node.restart()
-end
-else 
-tmr.stop(1)
-print("MAC: "..wifi.sta.getmac())      -- print current mac address
-print("IP: "..wifi.sta.getip())      -- print current IP address
-print_lcd(wifi.sta.getip())
-sntp.sync('pool.ntp.org',sync_ok, sync_err)
-tmr.alarm(0, 60000, 1, function() main() end )
-end 
-end)
+wifi.setmode(wifi.STATIONAP)
+--ESP SSID generated wiht its chipid
+wifi.ap.config({ssid="Mynode-"..node.chipid()
+, auth=wifi.OPEN})
+enduser_setup.manual(true)
+enduser_setup.start(
+  function()
+  wifi.setmode(wifi.STATION)
+    sntp.sync('pool.ntp.org',sync_ok, sync_err)
+    enduser_setup.stop()
+    tmr.alarm(0, 60000, 1, function() main() end )
+    --Get current Station configuration (OLD FORMAT)
+    ssid, password, bssid_set, bssid=wifi.sta.getconfig()
+    print("\nCurrent Station configuration:\nSSID : "..ssid
+    .."\nPassword  : "..password
+    .."\nBSSID_set  : "..bssid_set
+    .."\nBSSID: "..bssid.."\n")
+    ssid, password, bssid_set, bssid=nil, nil, nil, nil
+  end,
+  function(err, str)
+    print("enduser_setup: Err #" .. err .. ": " .. str)
+  end
+);
 
 
 -- i2c config
