@@ -22,23 +22,25 @@ end
 
 wifi.setmode(wifi.STATIONAP)
 --ESP SSID generated wiht its chipid
-wifi.ap.config({ssid="Mynode-"..node.chipid()
+wifi.ap.config({ssid="ESP-"..node.chipid()
 , auth=wifi.OPEN})
 enduser_setup.manual(true)
 enduser_setup.start(
   function()
-    enduser_setup.stop()
-    wifi.setmode(wifi.STATION)
-    
-    sntp.sync('pool.ntp.org',sync_ok, sync_err)
+	if wifi.sta.getip() ~= nil then
+		enduser_setup.stop()
+		wifi.setmode(wifi.STATION)
+		
+		sntp.sync('pool.ntp.org',sync_ok, sync_err)
 
-    --Get current Station configuration (OLD FORMAT)
-    ssid, password, bssid_set, bssid=wifi.sta.getconfig()
-    print("\nCurrent Station configuration:\nSSID : "..ssid
-    .."\nPassword  : "..password
-    .."\nBSSID_set  : "..bssid_set
-    .."\nBSSID: "..bssid.."\n")
-    ssid, password, bssid_set, bssid=nil, nil, nil, nil
+		--Get current Station configuration (OLD FORMAT)
+		ssid, password, bssid_set, bssid=wifi.sta.getconfig()
+		print("\nCurrent Station configuration:\nSSID : "..ssid
+		.."\nPassword  : "..password
+		.."\nBSSID_set  : "..bssid_set
+		.."\nBSSID: "..bssid.."\n")
+		ssid, password, bssid_set, bssid=nil, nil, nil, nil
+	end
   end,
   function(err, str)
     print("enduser_setup: Err #" .. err .. ": " .. str)
