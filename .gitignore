@@ -1,5 +1,4 @@
 *.Log
-*.txt
 *.png
 /Tools/Config/*.*
 /Tools/ESPlorer/ESPlorer.Log
