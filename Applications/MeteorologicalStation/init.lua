@@ -69,9 +69,9 @@ conn:on("connection", function(conn)
     -- Checking rain
     if (RainSendData == false) then
 
-        tDHT, hDHT = readDHT()
+        tDHT, humidity = readDHT()
 
-        tBMP, phpBMP, phgBMP = readBMP180()
+        tBMP, phpBMP, pressure = readBMP180()
     
         Vbat = adc.readvdd33(0)
         --Vbat = (Vbat * 3) / 1,024
@@ -80,12 +80,18 @@ conn:on("connection", function(conn)
         print("\r")
         print("System voltage:"..Vbat.." mV")
         print("Temp DHT:"..tDHT.." C")
-        print("Hum:"..hDHT.." %")
+        print("Hum:"..humidity.." %")
         print("Temp BMP180:"..tBMP.." C")
-        print("Pres BMP180:"..phgBMP.." mmHg")
-    
+        print("Pres BMP180:"..pressure.." mmHg")
+
+        --Фон
+        fon = 15
+
+        -- Получаем среднее значение температуры
+        temperature = (tBMP + tDHT) / 2
+
         print("Send data...")
-        conn:send("GET /update?key="..TSKEY.."&field1="..tBMP.."&field2="..phgBMP.."&field3="..hDHT.."&field4="..Vbat.."&field6="..tDHT.."\r\n")
+        conn:send("GET /update?key="..TSKEY.."&field1="..temperature.."&field2="..pressure.."&field3="..humidity.."&field4="..fon.."\r\n")
     else
         print("\r")
         print("Send data...")
