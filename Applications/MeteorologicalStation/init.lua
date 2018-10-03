@@ -4,13 +4,17 @@
 WIFI_SSID = "TP-LINK_BFC8C4"
 WIFI_PASS = "OmManiPadmeHum"
 
---Write API Key thingspeak
+-- IP address and TCP port server thingspeak
+SERVER_IP_ADDRESS = '184.106.153.149'
+SERVER_TCP_PORT = 80
+
+-- Write API Key thingspeak
 TSKEY='YDMRPUENEFI92SNA'
 
 -- DHT config
 DAT = 1
 
--- PORT INPUT
+-- PORT RAIN INPUT
 RAIN =  5
 gpio.mode(RAIN, gpio.INPUT)
 
@@ -19,6 +23,7 @@ SDA_PIN = 2
 SCL_PIN = 3
 
 timeout = 60
+timeoutRainOff = 0
 
 RainLast = 1;
 if(gpio.read(RAIN) == 1) then
@@ -26,6 +31,7 @@ if(gpio.read(RAIN) == 1) then
 end
 RainSendData = false
 
+TIME_SEND_DATA = 30
 
 -- Sending data to server thingspeak
 function main()
@@ -34,68 +40,70 @@ function main()
 
     timeout = timeout - 1
     
-    if (timeout == 0) then            
-        timeout = 29
+    if(timeout == 0) then
+        timeout = (TIME_SEND_DATA - 1) * 60
         -- conection to thingspeak.com
-        print("Sending data to thingspeak.com")
+        --print("Sending data to thingspeak.com")
         conn:on("receive", function(conn, payloadout)
-                if (string.find(payloadout, "Status: 200 OK") ~= nil) then
+                if(string.find(payloadout, "Status: 200 OK") ~= nil) then
                     print("Posted OK");
                 end
             end)
         -- api.thingspeak.com 184.106.153.149
-        conn:connect(80,'184.106.153.149')
+        conn:connect(SERVER_TCP_PORT, SERVER_IP_ADDRESS)
     else
         rainCur = gpio.read(RAIN)
-        if (RainLast ~= rainCur) then
+        
+        if(rainCur == 0) then
+			timeoutRainOff = timeoutRainOff + 1
+        end
+
+        if(RainLast ~= rainCur) then
+            
             RainLast = rainCur
             RainSendData = true
             -- conection to thingspeak.com
-            print("Sending data to thingspeak.com")
+            --print("Sending data to thingspeak.com")
             conn:on("receive", function(conn, payloadout)
-                    if (string.find(payloadout, "Status: 200 OK") ~= nil) then
+                    if(string.find(payloadout, "Status: 200 OK") ~= nil) then
                         print("Posted OK");
                     end
                 end)
             -- api.thingspeak.com 184.106.153.149
-            conn:connect(80,'184.106.153.149')
+            conn:connect(SERVER_TCP_PORT, SERVER_IP_ADDRESS)
         end
     end
 
-    print("Timeout Send Data "..timeout.. " min.")
 
 --
 conn:on("connection", function(conn)
-    -- Checking rain
-    if (RainSendData == false) then
 
-        tDHT, humidity = readDHT()
+    print("\rSend data...")
 
-        tBMP, phpBMP, pressure = readBMP180()
+    if(RainSendData == false) then    -- Checking rain
+
+        -- Read Sensor humidity and temperature
+        tDHT, hDHT = readDHT()
+
+        -- Read Sensor pressure and temperature
+        tBMP, phpBMP, phgBMP = readBMP180()
     
-        Vbat = adc.readvdd33(0)
+        --Vbat = adc.readvdd33(0)
         --Vbat = (Vbat * 3) / 1,024
         --Vbat = (Vbat * 1000) /  687
         
-        print("\r")
-        print("System voltage:"..Vbat.." mV")
+        --print("System voltage:"..Vbat.." mV")
         print("Temp DHT:"..tDHT.." C")
-        print("Hum:"..humidity.." %")
-        print("Temp BMP180:"..tBMP.." C")
-        print("Pres BMP180:"..pressure.." mmHg")
+        print("Hum:"..hDHT.." %")
+        print("Temp BMP:"..tBMP.." C")
+        print("Pres BMP:"..phgBMP.." mmHg")
 
-        --Фон
-        fon = 15
+        --Fon
+        fDOS = 15
 
-        -- Получаем среднее значение температуры
-        temperature = (tBMP + tDHT) / 2
-
-        print("Send data...")
-        conn:send("GET /update?key="..TSKEY.."&field1="..temperature.."&field2="..pressure.."&field3="..humidity.."&field4="..fon.."\r\n")
+        conn:send("GET /update?key="..TSKEY.."&field1="..tBMP.."&field2="..phgBMP.."&field3="..hDHT.."&field4="..fDOS.."\r\n")
     else
-        print("\r")
-        print("Send data...")
-        if (RainLast == 1) then
+        if(RainLast == 1) then
             print("Rain Status: false")
             conn:send("GET /update?key="..TSKEY.."&field5=0\r\n")
         else
@@ -130,35 +138,32 @@ end
 print("Setting up WIFI...")
 wifi.setmode(wifi.STATION)
 --modify according your wireless router settings
-station_cfg={}
+station_cfg = {}
 station_cfg.ssid = WIFI_SSID
-station_cfg.pwd= WIFI_PASS
-station_cfg.save=false
+station_cfg.pwd = WIFI_PASS
+station_cfg.save = false
 wifi.sta.config(station_cfg)
 
 wifi.sta.connect()
 tmr.alarm(1, 1000, 1, function() 
-if (wifi.sta.getip()== nil) then
-	print("IP unavaiable, Waiting...")
-
-	-- dec timeout
-	--timeout = timeout - 1
-	--print("Timeout Connect "..timeout)
-	if(timeout == 0) then
-		-- D0 to RESET
-		--print("Deep sleep 30 min")
-		--node.dsleep(1800000000)
-	end
-	
+if(wifi.sta.getip()== nil) then
+     print("IP unavaiable, Waiting...")
+    -- dec timeout
+    --timeout = timeout - 1
+    --print("Timeout Connect "..timeout)
+    if(timeout == 0) then
+        -- D0 to RESET
+        --print("Deep sleep 30 min")
+        --node.dsleep(1800000000)
+    end
 else
-	tmr.stop(1)
+    tmr.stop(1)
     timeout = 1
-	print("MAC: "..wifi.sta.getmac())   -- print current mac address
-	print("IP: "..wifi.sta.getip())     -- print current IP address
- 
-	-- main run every 1min
-	tmr.alarm(0, (60 * 1000), tmr.ALARM_AUTO, function() main() end )
-	--tmr.alarm(0, 1000, tmr.ALARM_SINGLE, function() sendData() end )
+    print("MAC: "..wifi.sta.getmac())   -- print current mac address
+    print("IP: "..wifi.sta.getip())     -- print current IP address
+
+    -- main run every 1sec
+    tmr.alarm(0, 1000, tmr.ALARM_AUTO, function() main() end )
 end
 
 end)
@@ -171,29 +176,29 @@ bmp085.setup()
 
 -- read data BMP180
 function readBMP180()
-	t = bmp085.temperature()
-	-- add decimal point
-	t = t / 10 ..".".. t % 10
-	print("BMP180 temperature: "..t)
-	p = bmp085.pressure(OSS)
-	print("BMP180 pressure hPA: "..p)
-	-- converp Pa to mmHg
-	phg = (p * 75 / 10000).."."..((p * 75 % 10000) / 1000)
-	print("BMP180 pressure mmHg: "..phg)
-	return t, p, phg
+    t = bmp085.temperature()
+    -- add decimal point
+    t = t / 10 ..".".. t % 10
+    --print("BMP180 temperature: "..t)
+    p = bmp085.pressure(OSS)
+    --print("BMP180 pressure hPA: "..p)
+    -- converp Pa to mmHg
+    phg = (p * 75 / 10000).."."..((p * 75 % 10000) / 1000)
+    --print("BMP180 pressure mmHg: "..phg)
+    return t, p, phg
 end
 
 
 function readDHT()
-	status, temp, humi, temp_dec, humi_dec = dht.readxx(DAT)
-	if(status == dht.OK) then
-		temp=temp.."."..temp_dec
-		print("DHT temperature: "..temp)
-		humi=humi.."."..humi_dec
-		print("DHT humidity: "..humi)
-		return temp, humi
-	else
-		print("DHT read error:"..status)
-	end
+    status, temp, humi, temp_dec, humi_dec = dht.readxx(DAT)
+    if(status == dht.OK) then
+        temp=temp.."."..temp_dec
+        --print("DHT temperature: "..temp)
+        humi = humi.."."..humi_dec
+        --print("DHT humidity: "..humi)
+        return temp, humi
+    else
+        print("DHT read error:"..status)
+    end
 end
 
