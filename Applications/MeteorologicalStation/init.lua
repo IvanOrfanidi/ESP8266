@@ -15,18 +15,23 @@ TSKEY='YDMRPUENEFI92SNA'
 DAT = 1
 
 -- PORT RAIN INPUT
-RAIN =  5
+RAIN = 5
 gpio.mode(RAIN, gpio.INPUT)
 
 -- i2c config BMP180
 SDA_PIN = 2
 SCL_PIN = 3
 
-timeout = 60
-timeoutRainOff = 0
+TimeoutSendData = 60
+
+RAIN_TIMEOUT_ON = 59
+RAIN_TIMEOUT_OFF = 59
+
+TimeoutRainOn = RAIN_TIMEOUT_ON
+TimeoutRainOff = RAIN_TIMEOUT_OFF
 
 RainLast = 1;
-if(gpio.read(RAIN) == 1) then
+if (gpio.read(RAIN) == 1) then
     RainLast = 0
 end
 RainSendData = false
@@ -38,14 +43,14 @@ function main()
 
     conn = net.createConnection(net.TCP, 0)
 
-    timeout = timeout - 1
+    TimeoutSendData = TimeoutSendData - 1
     
-    if(timeout == 0) then
-        timeout = (TIME_SEND_DATA - 1) * 60
+    if (TimeoutSendData == 0) then
+        TimeoutSendData = TIME_SEND_DATA * 60
         -- conection to thingspeak.com
         --print("Sending data to thingspeak.com")
         conn:on("receive", function(conn, payloadout)
-                if(string.find(payloadout, "Status: 200 OK") ~= nil) then
+                if (string.find(payloadout, "Status: 200 OK") ~= nil) then
                     print("Posted OK");
                 end
             end)
@@ -54,23 +59,54 @@ function main()
     else
         rainCur = gpio.read(RAIN)
         
-        if(rainCur == 0) then
-			timeoutRainOff = timeoutRainOff + 1
+        if (RainLast ~= rainCur and rainCur == 1) then
+            TimeoutRainOff = TimeoutRainOff + 1
+            print("TimRainOff: "..TimeoutRainOff.."\r")
+            if (TimeoutRainOff > RAIN_TIMEOUT_OFF) then
+                TimeoutRainOn = 0
+                RainLast = rainCur
+                RainSendData = true
+                 -- conection to thingspeak.com
+                --print("Sending data to thingspeak.com")
+                conn:on("receive", function(conn, payloadout)
+                        if (string.find(payloadout, "Status: 200 OK") ~= nil) then
+                            print("Posted OK");
+                        end
+                    end)
+                -- api.thingspeak.com 184.106.153.149
+                conn:connect(SERVER_TCP_PORT, SERVER_IP_ADDRESS) 
+            end
         end
 
-        if(RainLast ~= rainCur) then
-            
-            RainLast = rainCur
-            RainSendData = true
-            -- conection to thingspeak.com
-            --print("Sending data to thingspeak.com")
-            conn:on("receive", function(conn, payloadout)
-                    if(string.find(payloadout, "Status: 200 OK") ~= nil) then
-                        print("Posted OK");
-                    end
-                end)
-            -- api.thingspeak.com 184.106.153.149
-            conn:connect(SERVER_TCP_PORT, SERVER_IP_ADDRESS)
+        -- zerro TimeoutRainOff
+        if (RainLast == rainCur and rainCur == 0) then
+            --print("TimRainOff: "..TimeoutRainOff.."\r")
+            TimeoutRainOff = 0
+        end
+
+        if (RainLast ~= rainCur and rainCur == 0) then
+            TimeoutRainOn = TimeoutRainOn + 1
+            print("TimRainOn: "..TimeoutRainOn.."\r")
+            if (TimeoutRainOn > RAIN_TIMEOUT_ON) then
+                TimeoutRainOff = 0
+                RainLast = rainCur
+                RainSendData = true
+                -- conection to thingspeak.com
+                --print("Sending data to thingspeak.com")
+                conn:on("receive", function(conn, payloadout)
+                        if (string.find(payloadout, "Status: 200 OK") ~= nil) then
+                            print("Posted OK");
+                        end
+                    end)
+                -- api.thingspeak.com 184.106.153.149
+                conn:connect(SERVER_TCP_PORT, SERVER_IP_ADDRESS)       
+            end
+        end
+
+        -- zerro TimeoutRainOn
+        if (RainLast == rainCur and rainCur == 1) then
+            --print("TimRainOn: "..TimeoutRainOn.."\r")
+            TimeoutRainOn = 0
         end
     end
 
@@ -80,7 +116,7 @@ conn:on("connection", function(conn)
 
     print("\rSend data...")
 
-    if(RainSendData == false) then    -- Checking rain
+    if (RainSendData == false) then    -- Checking rain
 
         -- Read Sensor humidity and temperature
         tDHT, hDHT = readDHT()
@@ -93,22 +129,22 @@ conn:on("connection", function(conn)
         --Vbat = (Vbat * 1000) /  687
         
         --print("System voltage:"..Vbat.." mV")
-        print("Temp DHT:"..tDHT.." C")
-        print("Hum:"..hDHT.." %")
-        print("Temp BMP:"..tBMP.." C")
-        print("Pres BMP:"..phgBMP.." mmHg")
+        --print("Temp DHT:"..tDHT.." C")
+        --print("Hum:"..hDHT.." %")
+        --print("Temp BMP:"..tBMP.." C")
+        --print("Pres BMP:"..phgBMP.." mmHg")
 
         --Fon
-        fDOS = 15
+        --fDOS = 15
 
-        conn:send("GET /update?key="..TSKEY.."&field1="..tBMP.."&field2="..phgBMP.."&field3="..hDHT.."&field4="..fDOS.."\r\n")
+        conn:send("GET /update?key="..TSKEY.."&field1="..tBMP.."&field2="..phgBMP.."&field3="..hDHT.."\r\n")
     else
-        if(RainLast == 1) then
-            print("Rain Status: false")
-            conn:send("GET /update?key="..TSKEY.."&field5=0\r\n")
+        if (RainLast == 1) then
+            --print("Rain Status: false")
+            conn:send("GET /update?key="..TSKEY.."&field4=0\r\n")
         else
-            print("Rain Status: true")
-            conn:send("GET /update?key="..TSKEY.."&field5=1\r\n")
+            --print("Rain Status: true")
+            conn:send("GET /update?key="..TSKEY.."&field4=1\r\n")
         end
     end
 end)
@@ -135,6 +171,14 @@ end
 
 
 -----------------------------------------------------------
+FIRMWARE_VER = 1
+FIRMWARE_BUILD = 1
+DATE = "05.10.2018"
+print("\r")
+print("Firmware ver."..FIRMWARE_VER.."."..FIRMWARE_BUILD.."\r")
+print("Date "..DATE.."\r")
+print("\r")
+
 print("Setting up WIFI...")
 wifi.setmode(wifi.STATION)
 --modify according your wireless router settings
@@ -146,19 +190,10 @@ wifi.sta.config(station_cfg)
 
 wifi.sta.connect()
 tmr.alarm(1, 1000, 1, function() 
-if(wifi.sta.getip()== nil) then
+if (wifi.sta.getip()== nil) then
      print("IP unavaiable, Waiting...")
-    -- dec timeout
-    --timeout = timeout - 1
-    --print("Timeout Connect "..timeout)
-    if(timeout == 0) then
-        -- D0 to RESET
-        --print("Deep sleep 30 min")
-        --node.dsleep(1800000000)
-    end
 else
     tmr.stop(1)
-    timeout = 1
     print("MAC: "..wifi.sta.getmac())   -- print current mac address
     print("IP: "..wifi.sta.getip())     -- print current IP address
 
@@ -191,7 +226,7 @@ end
 
 function readDHT()
     status, temp, humi, temp_dec, humi_dec = dht.readxx(DAT)
-    if(status == dht.OK) then
+    if (status == dht.OK) then
         temp=temp.."."..temp_dec
         --print("DHT temperature: "..temp)
         humi = humi.."."..humi_dec
