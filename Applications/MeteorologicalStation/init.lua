@@ -129,21 +129,17 @@ conn:on("connection", function(conn)
         --Vbat = (Vbat * 1000) /  687
         
         --print("System voltage:"..Vbat.." mV")
-        --print("Temp DHT:"..tDHT.." C")
-        --print("Hum:"..hDHT.." %")
-        --print("Temp BMP:"..tBMP.." C")
-        --print("Pres BMP:"..phgBMP.." mmHg")
-
-        --Fon
-        --fDOS = 15
+        print("Temp:"..tBMP.." C")
+        print("Pres:"..phgBMP.." mmHg")
+        print("Hum:"..hDHT.." %")
 
         conn:send("GET /update?key="..TSKEY.."&field1="..tBMP.."&field2="..phgBMP.."&field3="..hDHT.."\r\n")
     else
         if (RainLast == 1) then
-            --print("Rain Status: false")
+            print("Rain Status: false")
             conn:send("GET /update?key="..TSKEY.."&field4=0\r\n")
         else
-            --print("Rain Status: true")
+            print("Rain Status: true")
             conn:send("GET /update?key="..TSKEY.."&field4=1\r\n")
         end
     end
@@ -162,7 +158,7 @@ conn:on("disconnection", function(conn, payloadout)
         conn:close();
         collectgarbage();
         print("Got disconnection...\r")
-        RainSendData = false
+        TimeoutSendData = 60
         -- D0 to RESET
         --print("Deep sleep 30 min")
         --node.dsleep(1800000000)
@@ -172,8 +168,8 @@ end
 
 -----------------------------------------------------------
 FIRMWARE_VER = 1
-FIRMWARE_BUILD = 1
-DATE = "05.10.2018"
+FIRMWARE_BUILD = 2
+DATE = "13.10.2018"
 print("\r")
 print("Firmware ver."..FIRMWARE_VER.."."..FIRMWARE_BUILD.."\r")
 print("Date "..DATE.."\r")
