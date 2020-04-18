@@ -1,6 +1,6 @@
 FIRMWARE_VER = 1
-FIRMWARE_BUILD = 5
-DATE = "26.10.2018"
+FIRMWARE_BUILD = 6
+DATE = "17.04.2020"
 print("\r")
 print("Firmware ver."..FIRMWARE_VER.."."..FIRMWARE_BUILD.."\r")
 print("Date "..DATE.."\r")
@@ -19,8 +19,8 @@ station_cfg.save = false
 
 
 -- IP address and TCP port server thingspeak
-SERVER_IP_ADDRESS = '184.106.153.149'
-SERVER_TCP_PORT = 80
+SERVER_IP_ADDRESS = '192.168.109.5'
+SERVER_TCP_PORT = 35000
 
 -- Write API Key thingspeak
 TSKEY='YDMRPUENEFI92SNA'
@@ -213,7 +213,6 @@ end)
 
 
 conn:on("disconnection", function(conn, payloadout)
-    conn:close();
     TimeoutSendData = 60
     print("Got disconnection...\r")
     wifi.setmode(wifi.NULLMODE)
