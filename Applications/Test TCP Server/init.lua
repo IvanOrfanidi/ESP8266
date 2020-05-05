@@ -18,14 +18,14 @@ station_cfg.pwd = WIFI_PASS
 station_cfg.save = true
 
 -- IP address and TCP port server thingspeak
-SERVER_IP_ADDRESS = '192.168.109.5'
+SERVER_IP_ADDRESS = '192.168.109.25'
 SERVER_TCP_PORT = 35000
 
 TIMEOUT_SEND_DATA = 120
 TIMEOUT_RESTART_SEND_DATA = 10
 
 -- Write API Key thingspeak
-TSKEY='CMK9M12C53U5WSFX'
+TSKEY='2HKRRIJY64C0IPCP'
 
 g_open_connection = false
 g_timeout_send = TIMEOUT_RESTART_SEND_DATA
@@ -79,14 +79,14 @@ end
 conn:on("connection", function(conn)
 
     print("\rSend data...")
-    a = 10
-    b = 20
-    c = 30
-    d = 40
-    e = 50
-    f = 60
-    g = 70
-    h = 80
+    a = 1
+    b = 2
+    c = 3
+    d = 4
+    e = 5
+    f = 6
+    g = 7
+    h = 8
     conn:send("GET /update?key="..TSKEY.."&field1="..a.."&field2="..b.."&field3="..c.."&field4="..d.."&field5="..e.."&field6="..f.."&field7="..g.."&field8="..h.."\r\n")
 end)
 
