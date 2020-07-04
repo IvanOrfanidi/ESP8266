@@ -1,0 +1,7 @@
+build:
+  script:
+  - cd /media/storage/gitlab/
+  after_script:
+  - cd /media/storage/gitlab/
+  - sudo rm -rf ESP8266
+  - git clone http://192.168.109.15/root/ESP8266.git
